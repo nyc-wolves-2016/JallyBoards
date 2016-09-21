@@ -35,7 +35,6 @@ get '/users/logout' do
 end
 
 get '/users/:id/profile' do
-  @user = User.find_by(id: params[:id])
-  # binding.pry
-  erb :'/users/profile'
+  @user = User.find(params[:id])
+  erb :'users/profile'
 end
