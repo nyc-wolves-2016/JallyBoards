@@ -1,4 +1,6 @@
 
   <% answers.each do |answer| %>
-  <li><%= answer.answer %> <br>-<%= answer.user.username %></li>
+  <li><%= answer.answer %> <br>-<%= answer.user.username %><form action="/questions/<%= answer.question_id %>/answers/<%= answer.id %>/votes" method="get">
+  <input type="submit" value="vote">
+</form><%= answer.votes.count %></li><br></li>
   <% end %>

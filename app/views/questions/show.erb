@@ -9,8 +9,8 @@
   </ul>
 <% end %>
 
-<form id="post_answer" method="post" action="/questions/<%=@question.id%>/answer">
+<form id="post_answer" method="post" action="/questions/<%=@question.id%>">
   <label for="answer">Answer</label><br>
   <textarea rows="10" cols="50" name="answer[answer]" placeholder="Answer the question"></textarea><br>
-  <input type="submit" value="Ask a question">
+  <input type="submit" value="Answer Question">
 </form>
