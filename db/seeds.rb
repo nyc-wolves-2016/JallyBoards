@@ -5,7 +5,8 @@
 end
 
 20.times do
-  question = Question.create!( question: Faker::Hipster.sentence,
+  question = Question.create!( question_title: Faker::Hipster.sentence,
+               question_body: Faker::Hacker.say_something_smart,
                user_id: rand(1..20))
 end
 
