@@ -1,8 +1,8 @@
-get '/ask' do
+get '/questions/new' do
   erb :'/questions/new'
 end
 
-post '/ask' do
+post '/questions' do
 
-  redirect '/question/:id'
+  redirect '/questions/:id'
 end
