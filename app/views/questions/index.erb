@@ -1,6 +1,9 @@
-<form id="ask_questions" method="post" action="/questions">
-  <input type="hidden" name="user[id]" value="<% current_user.id%>">
-  <input type="text" name="question[title]" placeholder="Question Title">
-  <input type="text" name="question[ques]">
+<h1>All the Questions!</h1>
 
-</form>
+<ul>
+  <% if @questions %>
+    <% @questions.each do |question| %>
+    <li><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
+    <% end %>
+  <% end %>
+</ul>
