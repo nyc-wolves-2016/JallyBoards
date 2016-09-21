@@ -9,8 +9,12 @@
   </ul>
 <% end %>
 
-<form id="post_answer" method="post" action="/questions/<%=@question.id%>">
-  <label for="answer">Answer</label><br>
-  <textarea rows="10" cols="50" name="answer[answer]" placeholder="Answer the question"></textarea><br>
-  <input type="submit" value="Answer Question">
-</form>
+<% if logged_in? %>
+  <form id="post_answer" method="post" action="/questions/<%=@question.id%>/answer">
+    <label for="answer">Answer</label><br>
+    <textarea rows="10" cols="50" name="answer[answer]" placeholder="Answer the question"></textarea><br>
+    <input type="submit" value="Answer Question">
+  </form>
+<% else %>
+  <p><b>Please <a href="/users/login">log in</a> to post an answer.</b></p>
+<% end %>
