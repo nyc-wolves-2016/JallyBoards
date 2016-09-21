@@ -4,6 +4,7 @@ get '/questions' do
 end
 
 get '/questions/new' do
+  require_user
   erb :'questions/new'
 end
 
