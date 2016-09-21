@@ -12,6 +12,6 @@ end
 
 100.times do
   answer = Answer.create!( answer: Faker::ChuckNorris.fact,
-               question_id: rand(1..20),
+               question_id: rand(1..40),
                user_id: rand(1..20))
 end
