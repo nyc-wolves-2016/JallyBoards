@@ -5,7 +5,7 @@
   <ul id="userQuestionList" >
     <% @user.questions.each do |question| %>
       <%= erb :'users/_questions', locals: {question: question} %>
-      <% end %>
+    <% end %>
   </ul>
 <% end %>
 <h3> Questions Answered: <%= @user.answered_questions.count %> </h3>
