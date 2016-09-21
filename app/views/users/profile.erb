@@ -2,17 +2,17 @@
 <h2> Username: <%= @user.username %> </h2>
 <h3> Questions: <%= @user.questions.count %> </h3>
 <%if @user.questions%>
-<ul id="userQuestionList" >
-<% @user.questions.each do |question| %>
- <li class="userQuestion"><a href="/questions/#{question.id}"><%= question.title %></a></li>
-<% end %>
-</ul>
+  <ul id="userQuestionList" >
+    <% @user.questions.each do |question| %>
+      <%= erb :'users/_questions', locals: {question: question} %>
+    <% end %>
+  </ul>
 <% end %>
 <h3> Questions Answered: <%= @user.answered_questions.count %> </h3>
 <%if @user.answered_questions%>
-<ul id="userAnsweredQuestionList" >
-<% @user.answered_questions.each do |question| %>
- <li class="userAnsweredQuestion"><a href="/questions/#{question.id}/"><%= question.title %></a></li>
-<% end %>
-</ul>
+  <ul id="userAnsweredQuestionList" >
+    <% @user.answered_questions.each do |question| %>
+      <li class="userAnsweredQuestion"><a href="/questions/#{question.id}/"><%= question.title %></a></li>
+    <% end %>
+  </ul>
 <% end %>
