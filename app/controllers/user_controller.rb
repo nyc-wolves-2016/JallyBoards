@@ -33,3 +33,9 @@ get '/users/logout' do
   session[:user_id] = nil
   redirect '/'
 end
+
+get '/users/:id/profile' do
+  @user = User.find_by(id: params[:id])
+  # binding.pry
+  erb :'/users/profile'
+end
