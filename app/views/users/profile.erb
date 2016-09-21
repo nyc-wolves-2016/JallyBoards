@@ -1,0 +1,16 @@
+<h1> Profile <h1>
+<h2> Username: <%= @user.username %> </h2>
+<h3> Total Questions: <%= @user.questions.count %>
+<%if @user.questions%>
+<ul id="userQuestionList" >
+<% @user.questions.each do |question| %>
+ <li class="userQuestion"><a href="/questions/#{question.id}"><%= question %></a></li>
+<% end %>
+<% end %>
+<h3> Total Answers: <%= @user.answers.count %> </h3>
+<%if @user.answers%>
+<ul id="userAnswerList" >
+<% @user.answers.each do |answer| %>
+ <li class="userAnswer"><a href="/questions/#{answer.question_id}/"><%= answer %></a></li>
+<% end %>
+<% end %>
