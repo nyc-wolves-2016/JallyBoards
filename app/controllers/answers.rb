@@ -1,6 +1,6 @@
 post '/questions/:id/answer' do
   answer = Answer.new(params[:answer])
-  answer.user_id = 1
+  question.user_id = current_user.id
   answer.question_id = params[:id]
 
   if answer.save
