@@ -1,6 +1,8 @@
 <form id="ask_questions" method="post" action="/questions">
   <input type="hidden" name="user[id]" value="">
-  <input type="text" name="question[title]" placeholder="Question Title">
-  <input type="text" name="question[content]" placeholder="Explain your problem">
+  <label for="title">Title</label><br>
+  <input type="text" name="question[title]" placeholder="Question Title"><br>
+  <label for="title">Content</label><br>
+  <textarea rows="10" cols="50" name="question[content]" placeholder="Explain your problem"></textarea><br>
   <input type="submit" value="Ask a question">
 </form>

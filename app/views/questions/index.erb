@@ -1,0 +1,9 @@
+<h1>All the Questions!</h1>
+
+<ul>
+  <% if @questions %>
+    <% @questions.each do |question| %>
+    <li><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
+    <% end %>
+  <% end %>
+</ul>
