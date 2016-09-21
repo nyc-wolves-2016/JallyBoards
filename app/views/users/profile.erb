@@ -12,7 +12,7 @@
 <%if @user.answered_questions%>
   <ul id="userAnsweredQuestionList" >
     <% @user.answered_questions.each do |question| %>
-      <li class="userAnsweredQuestion"><a href="/questions/#{question.id}/"><%= question.title %></a></li>
+      <%= erb :'users/_answered_questions', locals: {question: question} %>
     <% end %>
   </ul>
 <% end %>
