@@ -1,21 +1,22 @@
-get '/users/new' do
+get '/users/register' do
   prevent_user
-  erb :'/users/new'
+  erb :'/users/register'
 end
 
-post '/users' do
+post '/users/register' do
   user = User.new(params[:user])
   if user.save
-    redirect '/'
+    session[:user_id] = user.id
+    redirect "/users/#{user.id}/profile"
   else
-    @error = "Username or email already exists."
-    erb :'users/new'
+    @errors = user.errors.full_messages
+    erb :'users/register'
   end
 end
 
 get '/users/login' do
   prevent_user
-  erb :'/users/login'
+  erb :'/users/_login'
 end
 
 post '/users/login' do
@@ -24,13 +25,13 @@ post '/users/login' do
     session[:user_id] = user.id
     redirect '/'
   else
-    @error = "Email or password was invalid."
-    erb :'/users/login'
+    @errors = ['Email or password was invalid']
+    erb :'/users/_login'
   end
 end
 
 get '/users/logout' do
-  session[:user_id] = nil
+  session.clear
   redirect '/'
 end
 
