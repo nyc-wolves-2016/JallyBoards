@@ -23,3 +23,9 @@ get '/questions/:id' do
   @question = Question.find(params[:id])
   erb :'questions/show'
 end
+
+get '/questions/:id/votes' do
+  question = Question.find(params[:id])
+  vote = Vote.create(user_id: current_user.id, voteable: question)
+  redirect '/questions'
+end
