@@ -37,5 +37,6 @@ end
 
 get '/users/:id/profile' do
   @user = User.find(params[:id])
+  @top_voted_questions = @user.questions.sort_by {|question| question.votes}
   erb :'users/profile'
 end
