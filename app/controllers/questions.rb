@@ -4,6 +4,7 @@ get '/questions' do
 end
 
 get '/questions/new' do
+  require_user
   erb :'questions/new'
 end
 
@@ -11,7 +12,6 @@ post '/questions' do
   question = Question.new(params[:question])
   question.user_id = current_user.id
   if question.save
-
     redirect '/questions'
   else
     @errors = question.errors.full_messages

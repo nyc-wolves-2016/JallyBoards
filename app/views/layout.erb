@@ -16,17 +16,15 @@
     <h1>Stack Overflow</h1>
     <nav>
       <% if logged_in? %>
-        <a href="/users/show"><%= current_user.username %></a> |
+        <a href="/users/profile"><%= current_user.username %></a> |
         <a href="/users/logout">logout</a> |
-        <a href="/">home</a> | 
-        <a href="/questions/new">new questions</a> | 
-        <a href="/questions">questions</a>
       <% else %>
-        <a href="/users/new">register</a> |
+        <a href="/users/register">register</a> |
         <a href="/users/login">login</a> |
-        <a href="/">home</a> | 
-        <a href="/questions/new">new questions</a>
       <% end %>
+      <a href="/questions">questions</a> |
+      <a href="/questions/new">new questions</a> |
+      <a href="/">home</a>
     </nav>
   </header>
 
