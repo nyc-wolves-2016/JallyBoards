@@ -52,11 +52,17 @@ put  '/questions/:question_id/answers/:id/star' do
   question = Question.find(params[:question_id])
   if question.user == current_user
     answer = Answer.find(params[:id])
-    answer.update_attributes(starred: true)
+    question.set_star(answer)
       if answer.starred == true
+        if request.xhr?
+
+        else
           redirect "/questions/#{question.id}"
+        end
       else
-        erb :'questions/show'
+        redirect "/questions/#{question.id}"
       end
+  else
+    redirect "/questions/#{question.id}"
   end
 end

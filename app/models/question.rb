@@ -7,4 +7,8 @@ class Question < ActiveRecord::Base
             :content,
             :user,
               presence: true
+  def set_star(starred_answer)
+    self.answers.each {|answer| answer.destar}
+    starred_answer.update_attributes(starred: true)
+  end
 end

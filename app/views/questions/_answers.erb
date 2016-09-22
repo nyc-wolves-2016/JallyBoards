@@ -1,8 +1,8 @@
 <% answers.each do |answer| %>
   <div  class="answer-box">
     <div class="answer-options">
-      <button type="submit" name="starred" value="star_answer" class="fa fa-star-o star-button"></button>
-      <form method="post" action='/questions/<%= answer.question.id %>/answers/<%= answer.id %>/star' class="star-form">
+      <button type="submit" name="starred" value="star_answer" class="fa fa-star-o star-button <%= 'starred' if answer.starred %><%= 'starrable' if current_user_id == answer.question.user_id %>"></button>
+      <form class="put-form" method="post" action='/questions/<%= answer.question.id %>/answers/<%= answer.id %>/star' class="star-form">
         <input type="hidden" name ="_method" value="put"></input>
       </form>
       <form action="/questions/<%= answer.question_id %>/answers/<%= answer.id %>/votes" method="get">
