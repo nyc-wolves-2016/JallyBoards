@@ -62,14 +62,11 @@ nav ul {
     padding: 0;
     overflow: hidden;
     background-color: #34a9c7;
-
-
     display: flex;
 }
 
 nav ul li {
   border-right: 1px solid #ffffff;
-
 }
 
 nav ul li a {
@@ -84,7 +81,27 @@ nav ul li a:hover {
   background-color: #175869;
 }
 
+.active {
+  background-color: #175869;
+}
+
+.username {
+  font-weight: bold;
+}
+
 .body-container {
-  width: 80%;
+  width: 70%;
   margin: 200px auto 20px;
+}
+
+.question-header h1 {
+  font-size: 20px;
+  padding: 10px 0 0;
+}
+
+.question-header h2 {
+  font-size: 15px;
+  border-bottom: 1px solid #34a9c7;
+  padding: 0 0 10px;
+  font-weight: normal;
 }

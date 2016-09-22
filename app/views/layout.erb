@@ -15,10 +15,10 @@
   <header>
 
     <nav>
-      <a href="/"><img class="logo" src="/images/wolf-logo.png"><div class="header-text">JallyBoards</div></a>
+      <a href="/"><img class="logo" src="/images/wolf-logo.png"><div class="header-text">JALlyBoards</div></a>
       <ul>
       <% if logged_in? %>
-        <li><a href="/users/<%= current_user.id %>/profile"><%= current_user.username %></a> </li>
+        <li class="username"><a href="/users/<%= current_user.id %>/profile"><%= current_user.username %></a> </li>
         <li><a href="/users/logout">logout</a></li>
       <% else %>
         <li><a href="/users/register">register</a> </li>

@@ -1,12 +1,15 @@
-<h1><%= @question.title %></h1>
-<h2><%= @question.user.username %></h2>
+<div class="question-header"><h1><%= @question.title %></h1>
+<h2>asked by <span class="author"><%= @question.user.username %></span></h2>
+</div>
 <p><%= @question.content %></p>
-<p>ALL THE ANSWERS</p>
+<h1>ALL THE ANSWERS</h1>
 
 <% if @question.answers %>
   <div class="answer-list">
     <%= erb :'questions/_answers', locals: {answers: @question.answers} %>
   </div>
+  <% else %>
+  <p>No answers yet.</p>
 <% end %>
 </div>
 <% if logged_in? %>
