@@ -1,7 +1,14 @@
 <h1> Profile <h1>
 <h2> Username: <%= @user.username %> </h2>
 <h3> Questions: <%= @user.questions.count %> </h3>
-<h4> Highest Voted: <%= @top_voted_questions.first.title %> </h4>
+<h4> Highest Voted:
+  <%if @top_voted_questions.count > 0 %>
+    <a href="/questions/#{@top_voted_questions.last.id}"><%= @top_voted_questions.last.title %></a>
+  <%else%>
+    You dont have enough votes yet.
+  <%end%>
+</h4>
+
 <%if @user.questions%>
   <ul id="userQuestionList" >
     <% @user.questions.each do |question| %>
@@ -10,6 +17,14 @@
   </ul>
 <% end %>
 <h3> Questions Answered: <%= @user.answered_questions.count %> </h3>
+<h4> Highest Voted:
+  <% if @top_voted_answers.count > 0 %>
+    <a href="/questions/#{@top_voted_answers.last.question.id}"><%= @top_voted_answers.last.answer %></a>
+  <% else %>
+    You dont have enough votes yet.
+  <% end %>
+</h4>
+
 <%if @user.answered_questions%>
   <ul id="userAnsweredQuestionList" >
     <% @user.answered_questions.each do |question| %>
