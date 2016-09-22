@@ -1,11 +1,11 @@
-def vote_count(post)
-  votes = 0
-  post.votes.each do |vote|
-    if vote.status == true
-      votes += 1
-    else
-      votes -= 1
-    end
-  end
-  votes
+def upvote_count(post)
+  up_votes = 0
+  post.votes.each { |vote| up_votes += 1 if vote.status == true }
+  up_votes
+end
+
+def downvote_count(post)
+  down_votes = 0
+  post.votes.each { |vote| down_votes += 1 if vote.status == false }
+  down_votes
 end
