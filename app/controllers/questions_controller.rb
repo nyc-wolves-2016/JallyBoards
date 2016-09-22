@@ -29,14 +29,22 @@ get '/questions/:id' do
 end
 
 get '/questions/:id/votes' do
-  vote_status = params[:status]
-  if vote_status == "upvote"
-    vote_status = true
-  else
-    vote_status = false
-  end
   question = Question.find(params[:id])
-  vote = Vote.create(user_id: current_user.id, voteable: question, status: vote_status)
+  if has_voted?(question)
+    if params[:status] == "upvote"
+      user_vote(question).update_attributes(status: true)
+    else
+      user_vote(question).update_attributes(status: false)
+    end
+  else
+    vote_status = params[:status]
+    if vote_status == "upvote"
+      vote_status = true
+    else
+      vote_status = false
+    end
+    Vote.create(user_id: current_user.id, voteable: question, status: vote_status)
+  end
   redirect '/questions'
 end
 

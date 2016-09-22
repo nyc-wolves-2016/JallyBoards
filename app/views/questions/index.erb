@@ -3,7 +3,7 @@
 <div class="question-list">
   <% if @questions %>
     <% @questions.each do |question| %>
-      <%= erb :'questions/_questions_box', locals: {question: question} %>
+      <%= erb :'questions/_questions_box', locals: {post: question} %>
     <% end %>
   <% end %>
 </div>
