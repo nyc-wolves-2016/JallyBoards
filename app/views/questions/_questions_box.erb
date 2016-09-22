@@ -3,9 +3,9 @@
     <form class="vote-form" action="/questions/<%= post.id %>/votes" method="get">
       <%= erb :'questions/_vote', locals: {post: post}  %>
     </form>
-    <%= erb :'questions/_vote_count', locals: {post: post} %><br>
+    <%= erb :'questions/_vote_count', locals: {post: post} %>
   </div>
-  <p class="question"><a href="/questions/<%= post.id %>"><%= post.title %></a></p>
+  <div class="question"><div class="question-date"><%= long_form_date(post.created_at) %>:&nbsp;</div><a href="/questions/<%= post.id %>"><%= post.title %></a></div>
   <%if !logged_in? %>
     <div class="login-box">
       <%= erb :'users/_login' %>

@@ -12,6 +12,10 @@ body a:hover {
   color: #175869;
 }
 
+h1 {
+  font-size: 20px;
+}
+
 .login-box {
   display: none;
 }
@@ -166,4 +170,59 @@ nav ul li a:hover {
   height: 150px;
   background-color: #34a9c7;
   margin-right: 5px;
+}
+
+.upvote {
+  color: #7bbd42;
+}
+
+.downvote {
+  color: #d60007;
+}
+
+.user-options {
+  display: inline-block;
+  float: left;
+  width: 40px;
+  height: 40px;
+  padding-right: 5px;
+}
+
+.question {
+  display: flex;
+  overflow: auto;
+}
+
+.question_box, .answer-box {
+  border-bottom: 1px solid #34a9c7;
+  padding: 5px;
+}
+
+.question_box {
+    height: 50px;
+    display: flex;
+    overflow: auto;
+}
+
+.question_box:last-child, .answer-box:last-child {
+  border: 0;
+}
+
+.answer-list {
+  margin-left: 30px;
+}
+
+.answer {
+  overflow: auto;
+}
+
+.answer-box {
+  overflow: auto;
+}
+
+.answer-options {
+  display: inline-block;
+  float: left;
+  width: 50px;
+  height: 50px;
 }
