@@ -1,5 +1,12 @@
-<div class="question-header"><h1><%= @question.title %></h1>
-<h2>asked by <span class="author"><%= @question.user.username %></span></h2>
+<div class="question-header">
+  <div class="user-options">
+    <form class="vote-form" action="/questions/<%= @question.id %>/votes" method="get">
+      <%= erb :'questions/_vote', locals: {post: @question}  %>
+    </form>
+    <%= erb :'questions/_vote_count', locals: {post: @question} %><br>
+  </div>
+  <h1><%= @question.title %></h1>
+  <h2>asked by <span class="author"><%= @question.user.username %></span></h2>
 </div>
 <p><%= @question.content %></p>
 <h1>ALL THE ANSWERS</h1>
