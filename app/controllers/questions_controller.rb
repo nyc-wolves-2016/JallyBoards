@@ -29,8 +29,14 @@ get '/questions/:id' do
 end
 
 get '/questions/:id/votes' do
+  vote_status = params[:status]
+  if vote_status == "upvote"
+    vote_status = true
+  else
+    vote_status = false
+  end
   question = Question.find(params[:id])
-  vote = Vote.create(user_id: current_user.id, voteable: question)
+  vote = Vote.create(user_id: current_user.id, voteable: question, status: vote_status)
   redirect '/questions'
 end
 
@@ -39,7 +45,6 @@ put  '/questions/:question_id/answers/:id/star' do
   answer = Answer.find(params[:id])
   answer.update_attributes(starred: true)
   if answer.starred == true
-    binding.pry
     redirect "/questions/#{question.id}"
   else
     erb :'questions/show'
