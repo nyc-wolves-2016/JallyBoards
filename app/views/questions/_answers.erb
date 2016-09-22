@@ -4,7 +4,6 @@
     <input type="hidden" name ="_method" value="put"></input>
   </form>
   <form action="/questions/<%= answer.question_id %>/answers/<%= answer.id %>/votes" method="get">
-
       <%= erb :'questions/_vote', locals: {post: answer} %>
   </form>
   <%= erb :'questions/_vote_count', locals: {post: answer} %>
