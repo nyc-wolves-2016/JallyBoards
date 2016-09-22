@@ -32,6 +32,4 @@ $(document).ready(function() {
     loginToggler($(event.target).closest('.login-box'));
   });
 
-  var url = window.location.pathname.split('/')[1];
-    $('nav.ul.li.' + index).addClass('.active');
 });
