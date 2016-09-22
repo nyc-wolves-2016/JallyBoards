@@ -16,7 +16,7 @@
     <h1>Stack Overflow</h1>
     <nav>
       <% if logged_in? %>
-        <a href="/users/profile"><%= current_user.username %></a> |
+        <a href="/users/<%= current_user.id %>/profile"><%= current_user.username %></a> |
         <a href="/users/logout">logout</a> |
       <% else %>
         <a href="/users/register">register</a> |
