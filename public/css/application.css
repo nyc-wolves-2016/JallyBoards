@@ -3,8 +3,13 @@ body {
   font-family: Verdana;
 }
 
-body a:link {
+body a:link, a:visited {
   text-decoration: none;
+  color: #34a9c7;
+}
+
+body a:hover {
+  color: #175869;
 }
 
 .login-box {
@@ -19,6 +24,7 @@ body a:link {
   vertical-align: sub;
   padding: 1px 0px 0px 0px;
 }
+
 .author {
   color: #8c8c8c;
   font-style: italic;
@@ -36,6 +42,7 @@ body a:link {
 .vote-count {
   color: #8c8c8c;
 }
+
 .logo {
   width: 10%;
   display: inline-block;
@@ -77,6 +84,10 @@ nav ul li a {
   text-decoration: none;
 }
 
+nav ul li a:link, nav ul li a:hover, nav ul li a:visited {
+  color: #ffffff;
+}
+
 nav ul li a:hover {
   background-color: #175869;
 }
@@ -108,12 +119,51 @@ nav ul li a:hover {
 
 .profile-list {
   display: inline-block;
-  width: 45%;
+  float: left;
+  width: 48%;
   padding: 5px;
+  margin-bottom: 20px;
 }
-pu
+
+.profile-list ul {
+  margin: 0;
+  padding: 0;
+}
+
+.profile-list li {
+  list-style-type: none;
+  border-bottom: 1px solid #34a9c7;
+}
+
+.profile-list li:last-child {
+  border: none;
+}
+
+.profile-list li a {
+  display: block;
+  padding: 2px 0;
+}
+
 .profile-list h3 {
-  background-color: #53941b;
+  background-color: #34a9c7;
   padding: 8px;
   border-radius: 5px 5px 0 0;
+
+}
+
+.profile-header h2 {
+  margin-bottom: 0;
+}
+
+.profile-header {
+  height: 160px;
+}
+
+.profile-image {
+  display: inline-block;
+  float: left;
+  width: 150px;
+  height: 150px;
+  background-color: #34a9c7;
+  margin-right: 5px;
 }
