@@ -13,3 +13,21 @@ end
 def prevent_user
   redirect '/' if logged_in?
 end
+
+def has_voted?(post)
+  current_user.votes.find_by(voteable_id: post.id)
+end
+
+def display_vote_option(post)
+  post_vote = current_user.votes.find_by(voteable_id: post.id)
+  if post_vote.status == true
+    #display button for option user hasn't chosen yet
+    return "downvote"
+  else
+    return "upvote"
+  end
+end
+
+def user_vote(post)
+  current_user.votes.find_by(voteable_id: post.id)
+end

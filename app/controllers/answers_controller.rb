@@ -17,7 +17,23 @@ post '/questions/:id/answer' do
 end
 
 get '/questions/:question_id/answers/:id/votes' do
+  # binding.pry
   answer = Answer.find(params[:id])
-  vote = Vote.create(user_id: current_user.id, voteable: answer)
+  if has_voted?(answer)
+    if params[:status] == "upvote"
+      user_vote(answer).update_attributes(status: true)
+    else
+      user_vote(answer).update_attributes(status: false)
+    end
+  else
+    vote_status = params[:status]
+    if vote_status == "upvote"
+      vote_status = true
+    else
+      vote_status = false
+    end
+    Vote.create(user_id: current_user.id, voteable: answer, status: vote_status)
+  end
+  # binding.pry
   redirect "/questions/#{params[:question_id]}"
 end

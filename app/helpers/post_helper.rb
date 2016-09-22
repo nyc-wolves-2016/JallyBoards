@@ -1,6 +1,6 @@
-def vote_count(question)
+def vote_count(post)
   votes = 0
-  question.votes.each do |vote|
+  post.votes.each do |vote|
     if vote.status == true
       votes += 1
     else
