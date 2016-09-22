@@ -1,0 +1,13 @@
+<div class="question_box" >
+  <div class="user-options">
+    <form class="vote-form" action="/questions/<%= question.id %>/votes" method="get">
+      <%= erb :'questions/_vote' %>
+    </form> <%= erb :'questions/_vote_count', locals: {item: question} %><br>
+  </div>
+  <p class="question"><a href="/questions/<%= question.id %>"><%= question.title %></a></p>
+  <%if !logged_in? %>
+    <div class="login-box">
+      <%= erb :'users/_login' %>
+    </div>
+  <% end %>
+</div>
