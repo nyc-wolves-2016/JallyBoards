@@ -45,6 +45,7 @@ h1 {
 
 .vote-count {
   color: #8c8c8c;
+  width: 50px;
 }
 
 .logo {
@@ -199,7 +200,7 @@ nav ul li a:hover {
 }
 
 .question_box {
-    height: 50px;
+    height: 58px;
     display: flex;
     overflow: auto;
 }
@@ -230,3 +231,7 @@ nav ul li a:hover {
 .starred {
   color: blue;
 }
+
+textarea {
+    border-radius: 10px;
+  }
