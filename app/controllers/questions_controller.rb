@@ -5,7 +5,7 @@ end
 
 get '/questions/new' do
   require_user
-  erb :'questions/new'
+  erb :'questions/_new'
 end
 
 post '/questions' do
@@ -16,7 +16,7 @@ post '/questions' do
         erb :'questions/_questions', layout: false, locals: { question: question }
       else
         redirect '/questions'
-        erb :'questions/new'
+        erb :'questions/_new'
       end
     else
       @errors = question.errors.full_messages
