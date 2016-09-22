@@ -4,13 +4,15 @@
 <p>ALL THE ANSWERS</p>
 
 <% if @question.answers %>
-  <ul>
-    <%= erb :'questions/_answers', locals: {answers: @question.answers} %>
+  <ul class="answer-list">
+    <% @question.answers.each do |answer| %>
+    <%= erb :'questions/_answers', locals: {answer: answer} %>
+    <% end %>
   </ul>
 <% end %>
-
+</div>
 <% if logged_in? %>
-  <form id="post_answer" method="post" action="/questions/<%=@question.id%>/answer">
+  <form id="post-answer" method="post" action="/questions/<%=@question.id%>/answer">
     <label for="answer">Answer</label><br>
     <textarea rows="10" cols="50" name="answer[answer]" placeholder="Answer the question"></textarea><br>
     <input type="submit" value="Answer Question">

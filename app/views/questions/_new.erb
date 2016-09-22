@@ -1,9 +1,9 @@
 <% erb(:_errors) %>
 
-<form id="ask_questions" method="post" action="/questions">
+<form id="ask-questions" method="post" action="/questions">
   <label for="title">Title</label><br>
   <input type="text" name="question[title]" placeholder="Question Title"><br>
   <label for="title">Content</label><br>
   <textarea rows="10" cols="50" name="question[content]" placeholder="Explain your problem"></textarea><br>
-  <input type="submit" value="Ask a question">
+  <input class="new-question" type="submit" value="Ask a question">
 </form>

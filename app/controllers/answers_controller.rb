@@ -1,10 +1,15 @@
-post '/questions/:id' do
+post '/questions/:id/answer' do
   answer = Answer.new(params[:answer])
   answer.user_id = current_user.id
   answer.question_id = params[:id]
 
   if answer.save
-    redirect "/questions/#{params[:id]}"
+    if request.xhr?
+      erb :'questions/_answers', layout: false, locals: {answer: answer }
+    else
+      redirect "/questions/#{params[:id]}"
+      erb :'questions/:id'
+    end
   else
     @errors = answer.errors.full_messages
     erb :'questions/:id'

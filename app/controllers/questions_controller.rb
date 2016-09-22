@@ -1,5 +1,5 @@
 get '/questions' do
-  @questions = Question.all
+  @questions = Question.all.order(created_at: :desc)
   erb :'questions/index'
 end
 
@@ -11,12 +11,16 @@ end
 post '/questions' do
   question = Question.new(params[:question])
   question.user_id = current_user.id
-  if question.save
-    redirect '/questions'
-  else
-    @errors = question.errors.full_messages
-    erb :'questions/new'
-  end
+    if question.save
+      if request.xhr?
+        erb :'questions/_questions', layout: false, locals: { question: question }
+      else
+        redirect '/questions'
+        erb :'questions/new'
+      end
+    else
+      @errors = question.errors.full_messages
+    end
 end
 
 get '/questions/:id' do
