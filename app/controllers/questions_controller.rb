@@ -5,7 +5,7 @@ end
 
 get '/questions/new' do
   require_user
-  erb :'questions/_3new'
+  erb :'questions/_new'
 end
 
 post '/questions' do
@@ -50,11 +50,13 @@ end
 
 put  '/questions/:question_id/answers/:id/star' do
   question = Question.find(params[:question_id])
-  answer = Answer.find(params[:id])
-  answer.update_attributes(starred: true)
-  if answer.starred == true
-    redirect "/questions/#{question.id}"
-  else
-    erb :'questions/show'
+  if question.user == current_user
+    answer = Answer.find(params[:id])
+    answer.update_attributes(starred: true)
+      if answer.starred == true
+          redirect "/questions/#{question.id}"
+      else
+        erb :'questions/show'
+      end
   end
 end

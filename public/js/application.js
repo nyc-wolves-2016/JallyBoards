@@ -1,11 +1,8 @@
 $(document).ready(function() {
 
-    $('#post-answer').on('submit', function(event) {
-
+    $('#post-answer').submit(function(event) {
       event.preventDefault();
-
       var data = $(this).serialize();
-
       $.ajax({
         url: $(this).attr('action'),
         method: 'POST',
@@ -13,7 +10,7 @@ $(document).ready(function() {
       }).done(function(response){
         console.log(response)
         $('.answer-list').append(response);
-        // $(event.target).trigger('reset');
+        $(event.target).trigger("reset");
       });
     });
 
