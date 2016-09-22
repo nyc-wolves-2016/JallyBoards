@@ -3,8 +3,17 @@
 <ul class="question-list">
   <% if @questions %>
     <% @questions.each do |question| %>
-    <%= erb :'questions/_questions', locals: { question: question }%>
-
+    <div class="user-options">
+        <form action="/questions/<%= question.id %>/votes" method="get">
+          <%= erb :'questions/_vote', locals: {item: question} %>
+        </form> <%= erb :'questions/_vote_count', locals: {item: question} %><br>
+    </div>
+      <li class="question"><a href="/questions/<%= question.id %>"><%= question.title %></a>
+        <%if !logged_in? %>
+          <div class="login-box">
+            <%= erb :'/users/_login' %>
+          </div>
+    <% end %>
     <% end %>
   <% end %>
 </ul>

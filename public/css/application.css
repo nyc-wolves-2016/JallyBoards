@@ -5,6 +5,32 @@ body {
   margin: 0 auto;
 }
 
-.loginBox {
+.login-box {
   display: none;
+}
+
+.star-button {
+  background-color: transparent;
+  border: none;
+  padding-top: 5px;
+  color: #8C8C8C;
+  vertical-align: sub;
+  padding: 1px 0px 0px 0px;
+}
+.author {
+  color: #8c8c8c;
+  font-style: italic;
+}
+
+.vote-button {
+  background-color: transparent;
+  border: none;
+  padding-top: 5px;
+  color: #8C8C8C;
+  vertical-align: sub;
+  padding: 1px 0px 0px 0px;
+}
+
+.vote-count {
+  color: #8c8c8c;
 }

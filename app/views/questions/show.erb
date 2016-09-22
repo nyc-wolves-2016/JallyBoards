@@ -4,11 +4,9 @@
 <p>ALL THE ANSWERS</p>
 
 <% if @question.answers %>
-  <ul class="answer-list">
-    <% @question.answers.each do |answer| %>
-    <%= erb :'questions/_answers', locals: {answer: answer} %>
-    <% end %>
-  </ul>
+  <div class="answer-list">
+    <%= erb :'questions/_answers', locals: {answers: @question.answers} %>
+  </div>
 <% end %>
 </div>
 <% if logged_in? %>

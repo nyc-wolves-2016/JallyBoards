@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+
     $('#post-answer').on('submit', function(event) {
 
       event.preventDefault();
@@ -16,17 +18,16 @@ $(document).ready(function() {
       });
     });
 
-  $('.voteForm').on('mouseover', '.upVoteButton', function(event){
-    $(this).closest('.voteForm').find('.loginBox').slideToggle();
+  $('.vote-form').on('mouseover', '.up-vote-button', function(event){
+    $(this).closest('.vote-form').find('.login-box').slideToggle();
   });
   function loginToggler(loginBox) {
-    var loginText = $('.loginBox').find('input[name="email"]').val();
+    var loginText = $('.login-box').find('input[name="email"]').val();
     if (!loginText) {
       $(loginBox).slideToggle();
     };
   };
-  $('.loginBox').on('mouseleave', function(event){
-    loginToggler($(event.target).closest('.loginBox'));
+  $('.login-box').on('mouseleave', function(event){
+    loginToggler($(event.target).closest('.login-box'));
   });
-
 });
