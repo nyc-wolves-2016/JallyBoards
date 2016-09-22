@@ -1,8 +1,9 @@
 <h1>All the Questions!</h1>
 
-<ul>
+<ul class="questionsList">
   <% if @questions %>
     <% @questions.each do |question| %>
+<<<<<<< HEAD
     <%= erb :'questions/_questions', locals: { question: question }%>
 
     <% end %>

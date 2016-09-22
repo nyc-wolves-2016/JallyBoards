@@ -5,3 +5,6 @@ body {
   margin: 0 auto;
 }
 
+.loginBox {
+  display: none;
+}
