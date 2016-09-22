@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    $('#ask-questions').on('submit', function(event) {
+    $('#post-answer').on('submit', function(event) {
+
       event.preventDefault();
 
       var data = $(this).serialize();
@@ -9,8 +10,9 @@ $(document).ready(function() {
         method: 'POST',
         data: data
       }).done(function(response){
-        $('.question-list').append(response);
-        $(event.target).trigger('reset');
+        console.log(response)
+        $('.answer-list').append(response);
+        // $(event.target).trigger('reset');
       });
     });
 

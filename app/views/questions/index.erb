@@ -9,8 +9,3 @@
   <% end %>
 </ul>
 </div>
-<% if logged_in? %>
-  <%= erb :'questions/_new' %>
-<% else %>
-  <p><b>Please <a href="/users/login">log in</a> to post a question.</b></p>
-<% end %>
