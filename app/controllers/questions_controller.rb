@@ -5,7 +5,7 @@ end
 
 get '/questions/new' do
   require_user
-  erb :'questions/_3new'
+  erb :'questions/_new'
 end
 
 post '/questions' do

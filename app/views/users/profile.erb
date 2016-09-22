@@ -1,5 +1,6 @@
 <h1> Profile <h1>
 <h2> Username: <%= @user.username %> </h2>
+<div class="profile-list">
 <h3> Questions: <%= @user.questions.count %> </h3>
 <h4> Highest Voted:
   <%if @top_voted_questions.count > 0 %>
@@ -9,13 +10,15 @@
   <%end%>
 </h4>
 
-<%if @user.questions%>
-  <ul class="profile-list" >
-    <% @user.questions.each do |question| %>
-      <%= erb :'users/_questions', locals: {question: question} %>
-    <% end %>
-  </ul>
-<% end %>
+  <%if @user.questions%>
+    <table>
+      <% @user.questions.each do |question| %>
+        <%= erb :'users/_questions', locals: {question: question} %>
+      <% end %>
+    </table>
+  <% end %>
+</div>
+<div class="profile-list">
 <h3> Questions Answered: <%= @user.answered_questions.count %> </h3>
 <h4> Highest Voted:
   <% if @top_voted_answers.count > 0 %>
@@ -26,9 +29,10 @@
 </h4>
 
 <%if @user.answered_questions%>
-  <ul class="profile-list" >
+  <ul>
     <% @user.answered_questions.each do |question| %>
       <%= erb :'users/_answered_questions', locals: {question: question} %>
     <% end %>
   </ul>
 <% end %>
+</div>
