@@ -4,10 +4,10 @@
   <% if @questions %>
     <% @questions.each do |question| %>
       <li class="question"><a href="/questions/<%= question.id %>"><%= question.title %></a>
-      <form class="voteForm" action="/questions/<%= question.id %>/votes" method="get">
-        <input class="upVoteButton" type="submit" value="vote">
+      <form class="vote-form" action="/questions/<%= question.id %>/votes" method="get">
+        <input class="up-vote-button" type="submit" value="vote">
         <%if !logged_in? %>
-          <div class="loginBox">
+          <div class="login-box">
             <%= erb :'/users/_login' %>
           </div>
         <% end %>
