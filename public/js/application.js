@@ -1,18 +1,17 @@
 $(document).ready(function() {
-<<<<<<< HEAD
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-
-    $('.question-list').on('submit', '#ask_questions', function(event) {
+    $('#ask-questions').on('submit', function(event) {
       event.preventDefault();
 
       var data = $(this).serialize();
 
-      console.log(data);
-
+      $.ajax({
+        url: $(this).attr('action'),
+        method: 'POST',
+        data: data
+      }).done(function(response){
+        $('.question-list').append(response);
+        $(event.target).trigger('reset');
+      });
     });
 
   $('.voteForm').on('mouseover', '.upVoteButton', function(event){

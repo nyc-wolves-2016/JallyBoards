@@ -1,14 +1,14 @@
 <h1>All the Questions!</h1>
-
-<ul class="questionsList">
+<div >
+<ul class="question-list">
   <% if @questions %>
     <% @questions.each do |question| %>
-<<<<<<< HEAD
     <%= erb :'questions/_questions', locals: { question: question }%>
 
     <% end %>
   <% end %>
 </ul>
+</div>
 <% if logged_in? %>
   <%= erb :'questions/_new' %>
 <% else %>
