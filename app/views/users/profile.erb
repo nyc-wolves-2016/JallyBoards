@@ -3,14 +3,14 @@
 <h3> Questions: <%= @user.questions.count %> </h3>
 <h4> Highest Voted:
   <%if @top_voted_questions.count > 0 %>
-    <a href="/questions/#{@top_voted_questions.last.id}"><%= @top_voted_questions.last.title %></a>
+    <a href="/questions/<%= @top_voted_questions.last.id %>"><%= @top_voted_questions.last.title %></a>
   <%else%>
     You dont have enough votes yet.
   <%end%>
 </h4>
 
 <%if @user.questions%>
-  <ul id="userQuestionList" >
+  <ul class="profile-list" >
     <% @user.questions.each do |question| %>
       <%= erb :'users/_questions', locals: {question: question} %>
     <% end %>
@@ -19,14 +19,14 @@
 <h3> Questions Answered: <%= @user.answered_questions.count %> </h3>
 <h4> Highest Voted:
   <% if @top_voted_answers.count > 0 %>
-    <a href="/questions/#{@top_voted_answers.last.question.id}"><%= @top_voted_answers.last.answer %></a>
+    <a href="/questions/<%=@top_voted_answers.last.question.id%>"><%= @top_voted_answers.last.answer %></a>
   <% else %>
     You dont have enough votes yet.
   <% end %>
 </h4>
 
 <%if @user.answered_questions%>
-  <ul id="userAnsweredQuestionList" >
+  <ul class="profile-list" >
     <% @user.answered_questions.each do |question| %>
       <%= erb :'users/_answered_questions', locals: {question: question} %>
     <% end %>

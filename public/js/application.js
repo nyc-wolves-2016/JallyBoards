@@ -31,4 +31,5 @@ $(document).ready(function() {
   $('.login-box').on('mouseleave', function(event){
     loginToggler($(event.target).closest('.login-box'));
   });
+
 });
