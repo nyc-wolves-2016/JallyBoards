@@ -6,4 +6,8 @@ class Answer < ActiveRecord::Base
   validates :user,
             :question,
               presence: true
+
+  def destar
+    self.update_attributes(starred: false)
+  end
 end

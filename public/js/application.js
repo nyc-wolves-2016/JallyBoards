@@ -28,5 +28,17 @@ $(document).ready(function() {
   $('.login-box').on('mouseleave', function(event){
     loginToggler($(event.target).closest('.login-box'));
   });
-
+  $('.answer-list').on('click', '.starrable', function(event){
+    event.preventDefault();
+    event.stopPropagation();
+    var theButtonFormallyKnownAsRichie = $(this).parent().find('.put-form').attr("action");
+    console.log(theButtonFormallyKnownAsRichie);
+    $.ajax({
+      url: theButtonFormallyKnownAsRichie,
+      method: "PUT"
+    }).done(function(response){
+    $('.answer-list').find('.star-button').removeClass('starred');
+    $(event.target).addClass('starred');
+  });
+  });
 });

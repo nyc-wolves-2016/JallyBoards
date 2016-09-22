@@ -6,6 +6,11 @@ def logged_in?
   !!current_user
 end
 
+def current_user_id
+  user = User.find_by(id: session[:user_id])
+  user.nil? ? nil : user.id
+end
+
 def require_user
   redirect '/users/login' unless logged_in?
 end
