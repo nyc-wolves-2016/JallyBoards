@@ -1,0 +1,9 @@
+  <li class="question"><a href="/questions/<%= question.id %>"><%= question.title %></a>
+  <form class="voteForm" action="/questions/<%= question.id %>/votes" method="get">
+  <input class="upVoteButton" type="submit" value="vote">
+  <%if !logged_in? %>
+    <div class="loginBox">
+      <%= erb :'/users/_login' %>
+    </div>
+  <% end %>
+</form><%= question.votes.count %></li><br>

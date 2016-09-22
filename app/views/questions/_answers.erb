@@ -1,13 +1,12 @@
-
-  <% answers.each do |answer| %>
-    <button type="submit" name="starred" value="star_answer" class="fa fa-star-o star-button"></button>
-    <form method="post" action='/questions/<%= answer.question.id %>/answers/<%= answer.id %>/star' class="star-form">
-      <input type="hidden" name ="_method" value="put"></input>
-    </form>
-    <form action="/questions/<%= answer.question_id %>/answers/<%= answer.id %>/votes" method="get">
-      <%= erb :'questions/_vote', locals: {item: answer} %>
-    </form>
-    <%= erb :'questions/_vote_count', locals: {item: answer} %>
-    <p><%= answer.answer %></p>
-    <span class="author">-<%= answer.user.username %></span>
-  <% end %>
+<% answers.each do |answer| %>
+  <button type="submit" name="starred" value="star_answer" class="fa fa-star-o star-button"></button>
+  <form method="post" action='/questions/<%= answer.question.id %>/answers/<%= answer.id %>/star' class="star-form">
+    <input type="hidden" name ="_method" value="put"></input>
+  </form>
+  <form action="/questions/<%= answer.question_id %>/answers/<%= answer.id %>/votes" method="get">
+    <%= erb :'questions/_vote', locals: {item: answer} %>
+  </form>
+  <%= erb :'questions/_vote_count', locals: {item: answer} %>
+  <p><%= answer.answer %></p>
+  <span class="author">-<%= answer.user.username %></span>
+<% end %>

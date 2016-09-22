@@ -4,11 +4,11 @@
 <p>ALL THE ANSWERS</p>
 
 <% if @question.answers %>
-  <div class="questionContainer">
+  <div class="answer-list">
     <%= erb :'questions/_answers', locals: {answers: @question.answers} %>
   </div>
 <% end %>
-
+</div>
 <% if logged_in? %>
   <form id="post-answer" method="post" action="/questions/<%=@question.id%>/answer">
     <label for="answer">Answer</label><br>
