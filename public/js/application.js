@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('.voteForm').on('mouseover', '.up-vote-button', function(event){
+  $('.vote-form').on('mouseover', '.up-vote-button', function(event){
     $(this).closest('.vote-form').find('.login-box').slideToggle();
   });
   function loginToggler(loginBox) {

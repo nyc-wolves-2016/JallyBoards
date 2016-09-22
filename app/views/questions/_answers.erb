@@ -5,9 +5,9 @@
       <input type="hidden" name ="_method" value="put"></input>
     </form>
     <form action="/questions/<%= answer.question_id %>/answers/<%= answer.id %>/votes" method="get">
-        <button class="fa fa-sort-desc up-vote-button vote-button" name="upVote" type="submit"></button>
-        <button class="fa fa-sort-asc down-vote-button vote-button" name="downVote" type="submit"></button>
-    </form><%= answer.votes.count %>
+      <%= erb :'questions/_vote', locals: {item: answer} %>
+    </form>
+    <%= erb :'questions/_vote_count', locals: {item: answer} %>
     <p><%= answer.answer %></p>
     <span class="author">-<%= answer.user.username %></span>
   <% end %>
