@@ -5,7 +5,7 @@ post '/questions/:id/answer' do
 
   if answer.save
     if request.xhr?
-      erb :'questions/_answers', layout: false, locals: {answer: answer }
+      erb :'questions/_answer', layout: false, locals: {answer: answer }
     else
       redirect "/questions/#{params[:id]}"
       erb :'questions/:id'

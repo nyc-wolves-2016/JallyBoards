@@ -10,13 +10,11 @@
 </div>
 <p><%= @question.content %></p>
 <h1>ALL THE ANSWERS</h1>
-
+<div class="answer-list">
 <% if @question.answers %>
-  <div class="answer-list">
     <%= erb :'questions/_answers', locals: {answers: @question.answers} %>
-  </div>
-  <% else %>
-
+<% else %>
+  <p>There are no answers.</p>
 <% end %>
 </div>
 <% if logged_in? %>
