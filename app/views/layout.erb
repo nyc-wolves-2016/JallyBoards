@@ -13,21 +13,24 @@
 <body>
 
   <header>
-    <h1>Stack Overflow</h1>
+
     <nav>
+      <a href="/"><img class="logo" src="/images/wolf-logo.png"><div class="header-text">JallyBoards</div></a>
+      <ul>
       <% if logged_in? %>
-        <a href="/users/<%= current_user.id %>/profile"><%= current_user.username %></a> |
-        <a href="/users/logout">logout</a> |
+        <li><a href="/users/<%= current_user.id %>/profile"><%= current_user.username %></a> </li>
+        <li><a href="/users/logout">logout</a></li>
       <% else %>
-        <a href="/users/register">register</a> |
-        <a href="/users/login">login</a> |
+        <li><a href="/users/register">register</a> </li>
+        <li><a href="/users/login">login</a></li>
       <% end %>
-      <a href="/questions">questions</a> |
-      <a href="/questions/new">new questions</a> |
-      <a href="/">home</a>
+      <li><a href="/questions">questions</a></li>
+      <li><a href="/questions/new">new questions</a></li>
+      <li><a href="/">home</a></li>
     </nav>
   </header>
-
+<div class="body-container">
   <%= yield %>
+</div>
 </body>
 </html>

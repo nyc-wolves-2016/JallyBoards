@@ -1,8 +1,10 @@
 body {
-  background-color: #F6F6EF;
+  background-color: #ffffff;
   font-family: Verdana;
-  max-width: 700px;
-  margin: 0 auto;
+}
+
+body a:link {
+  text-decoration: none;
 }
 
 .login-box {
@@ -33,4 +35,56 @@ body {
 
 .vote-count {
   color: #8c8c8c;
+
+.logo {
+  width: 10%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header-text {
+  font-size: 40px;
+  font-weight: bold;
+  color: #000000;
+  display: inline-block;
+}
+
+nav {
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #34a9c7;
+
+
+    display: flex;
+}
+
+nav ul li {
+  border-right: 1px solid #ffffff;
+
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #175869;
+}
+
+.body-container {
+  width: 80%;
+  margin: 200px auto 20px;
 }
