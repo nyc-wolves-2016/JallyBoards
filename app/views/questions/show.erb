@@ -4,9 +4,9 @@
 <p>ALL THE ANSWERS</p>
 
 <% if @question.answers %>
-  <ul>
+  <div class="questionContainer">
     <%= erb :'questions/_answers', locals: {answers: @question.answers} %>
-  </ul>
+  </div>
 <% end %>
 
 <% if logged_in? %>

@@ -1,11 +1,12 @@
 
   <% answers.each do |answer| %>
+    <button type="submit" name="starred" value="star_answer" class="fa fa-star-o star_button"></button>
     <form method="post" action='/questions/<%= answer.question.id %>/answers/<%= answer.id %>/star' class="star_form">
       <input type="hidden" name ="_method" value="put"></input>
-      <button type="submit" name="starred" value="star_answer" class="star_button"></button>
     </form>
-    <li><%= answer.answer %> <br>-<%= answer.user.username %>
     <form action="/questions/<%= answer.question_id %>/answers/<%= answer.id %>/votes" method="get">
         <input type="submit" value="vote">
-    </form><%= answer.votes.count %></li><br></li>
+    </form><%= answer.votes.count %>
+    <p><%= answer.answer %></p>
+    <span class="author">-<%= answer.user.username %></span>
   <% end %>
