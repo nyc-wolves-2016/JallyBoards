@@ -2,13 +2,13 @@
 <h2><%= @question.user.username %></h2>
 <p><%= @question.content %></p>
 <p>ALL THE ANSWERS</p>
-
+<div class="question-list">
 <% if @question.answers %>
   <ul>
     <%= erb :'questions/_answers', locals: {answers: @question.answers} %>
   </ul>
 <% end %>
-
+</div>
 <% if logged_in? %>
   <form id="post_answer" method="post" action="/questions/<%=@question.id%>/answer">
     <label for="answer">Answer</label><br>

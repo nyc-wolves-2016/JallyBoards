@@ -3,10 +3,13 @@
 <ul>
   <% if @questions %>
     <% @questions.each do |question| %>
-    <li><a href="/questions/<%= question.id %>"><%= question.title %></a><form action="/questions/<%= question.id %>/votes" method="get">
-  <input type="submit" value="vote">
-</form><%= question.votes.count %></li><br>
+    <%= erb :'questions/_questions', locals: { question: question }%>
+
     <% end %>
   <% end %>
 </ul>
-
+<% if logged_in? %>
+  <%= erb :'questions/_new' %>
+<% else %>
+  <p><b>Please <a href="/users/login">log in</a> to post a question.</b></p>
+<% end %>

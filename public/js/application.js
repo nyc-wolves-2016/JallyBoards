@@ -4,4 +4,13 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+    $('.question-list').on('submit', '#ask_questions', function(event) {
+      event.preventDefault();
+
+      var data = $(this).serialize();
+
+      console.log(data);
+
+    });
 });
