@@ -1,2 +1,17 @@
-<p>"Hello World"</p>
+<div class="top10">
+<h1>Most Recent Questions</h1>
+  <% if @recent_questions %>
+    <% @recent_questions.each do |question| %>
+    <div class="question-box"><a href="/questions/<%=question.id %>"><%= question.title %></a>
+    </div>
+    <% end %>
+  <% end %>
+</div>
 
+<div class="top10">
+  <h1>Top 10 Voted Questions</h1>
+</div>
+
+<div class="top-active">
+  <h2>Most Active Users</h2>
+</div>
