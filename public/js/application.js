@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
     $('#post-answer').on('submit', function(event) {
 
       event.preventDefault();
@@ -18,8 +17,10 @@ $(document).ready(function() {
       });
     });
 
-  $('.vote-form').on('mouseover', '.up-vote-button', function(event){
-    $(this).closest('.vote-form').find('.login-box').slideToggle();
+  $('.user-options').on('mouseover', '.vote-button', function(){
+    console.log(this);
+    $(this).closest('.question_box').find('.login-box').slideToggle();
+
   });
   function loginToggler(loginBox) {
     var loginText = $('.login-box').find('input[name="email"]').val();
