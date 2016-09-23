@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#post-answer').submit(function(event) {
+    $('#post-answer').on('click', 'submit', function(event) {
       event.preventDefault();
       var data = $(this).serialize();
       $.ajax({
