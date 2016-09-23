@@ -1,17 +1,21 @@
 <div class="top10">
-<h1>Most Recent Questions</h1>
+<div class="profile-list">
+<h3>Most Recent Questions</h3>
   <% if @recent_questions %>
     <% @recent_questions.each do |question| %>
-    <div class="question-box"><a href="/questions/<%=question.id %>"><%= question.title %></a>
+    <div class="question-box"><li><%= long_form_date(question.created_at) %>: <a href="/questions/<%=question.id %>"><%= question.title %></a></li>
     </div>
     <% end %>
   <% end %>
 </div>
-
-<div class="top10">
-  <h1>Top 10 Voted Questions</h1>
 </div>
 
-<div class="top-active">
-  <h2>Most Active Users</h2>
+<div class="top10">
+  <div class="profile-list">
+  <h3>Top 10 Voted Questions</h1>
+  </div>
+</div>
+
+<!--<div class="top-active">
+  <h2>Most Active Users</h2> -->
 </div>
