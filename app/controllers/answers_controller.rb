@@ -16,22 +16,41 @@ post '/questions/:id/answer' do
   end
 end
 
-get '/questions/:question_id/answers/:id/votes' do
-  answer = Answer.find(params[:id])
-  if has_voted?(answer)
-    if params[:status] == "upvote"
-      user_vote(answer).update_attributes(status: true)
-    else
-      user_vote(answer).update_attributes(status: false)
-    end
+get '/questions/:question_id/answers/:answer_id/votes/new' do
+  redirect "/questions/#{params[:question_id]}"
+end
+
+post '/questions/:question_id/answers/:answer_id/votes' do
+  #change in vote migration
+  if params[:status] == "upvote"
+    params[:status] = true
   else
-    vote_status = params[:status]
-    if vote_status == "upvote"
-      vote_status = true
-    else
-      vote_status = false
-    end
-    Vote.create(user_id: current_user.id, voteable: answer, status: vote_status)
+    params[:status] = false
   end
+
+  answer = Answer.find(params[:answer_id])
+  Vote.create(user_id: current_user.id, voteable: answer, status: params[:status])
+
+  redirect "/questions/#{params[:question_id]}/answers/#{params[:answer_id]}/votes/new"
+end
+
+put '/questions/:question_id/answers/:answer_id/votes/:id' do
+  answer = Answer.find(params[:answer_id])
+  if params[:status] == "upvote"
+    user_vote(answer).update_attributes(status: true)
+  else
+    user_vote(answer).update_attributes(status: false)
+  end
+
+  redirect "/questions/#{params[:question_id]}/answers/#{params[:answer_id]}/votes/:#{params[:id]}/edit"
+
+  # if request.xhr?
+
+  # else
+  #   redirect '/questions'
+  # end
+end
+
+get '/questions/:question_id/answers/:answer_id/votes/:id/edit' do
   redirect "/questions/#{params[:question_id]}"
 end

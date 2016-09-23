@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $('#post-answer').submit(function(event) {
       event.preventDefault();
       var data = $(this).serialize();
@@ -28,6 +27,7 @@ $(document).ready(function() {
   $('.login-box').on('mouseleave', function(event){
     loginToggler($(event.target).closest('.login-box'));
   });
+
   $('.answer-list').on('click', '.starrable', function(event){
     event.preventDefault();
     event.stopPropagation();
@@ -41,4 +41,73 @@ $(document).ready(function() {
     $(event.target).addClass('starred');
   });
   });
+
+
+//   $('.new-vote-form').on('click', 'button', function(event) {
+//     event.preventDefault();
+//     // debugger;
+//     var thisForm = this;
+//     var vote = $(this).val();
+//     var path = $(this).parent().attr('action');
+//     // debugger;
+//     $.ajax({
+//       method: 'POST',
+//       url: path,
+//       data: {status: vote}
+//     }).done(function(response) {
+//       // debugger;
+//       $(thisForm).parents('.user-options').children('.vote-count').remove();
+//       $(thisForm).parents('.user-options').after(response);
+//       $(thisForm).remove();
+
+  $('.new-vote').on('click', 'button', function(event) {
+    event.preventDefault();
+    // debugger;
+    var thisForm = this;
+    var vote = $(this).val();
+    var path = $(this).parent().attr('action');
+    // debugger;
+    $.ajax({
+      method: 'POST',
+      url: path,
+      data: {status: vote}
+    }).done(function(response) {
+      // debugger;
+      $(thisForm).parents('.user-options').children('.vote-count').remove();
+      $(thisForm).hide();
+      $(thisForm).parents('.user-options').append(response);
+    });
+  });
+
+  // $('.change-vote').on('click', 'button', function(event) {
+  //   event.preventDefault();
+  //   var thisForm = this;
+  //   var vote = $(this).val();
+  //   var path = $(this).parent().attr('action');
+  //   // debugger;
+  //   var otherForm = ''
+  //   if (vote == "upvote") {
+  //     $(thisForm).hide()
+  //     $(thisForm).parent().append('<button class="fa fa-thumbs-o-up up-vote-button vote-button" name="status" value="upvote" type="submit"></button>');
+  //   }
+  //   else {
+  //     $(thisForm).parent().append('<button class="fa fa-thumbs-o-down down-vote-button vote-button" name="status" value="downvote" type="submit"></button>');
+  //     $(thisForm).hide();
+  //   };
+  //   debugger;
+  //   $.ajax({
+  //     method: 'PUT',
+  //     url: path,
+  //     data: {status: vote}
+  //   }).done(function(response) {
+  //     debugger;
+
+  //     $(thisForm).parents('.user-options').children('.vote-count').remove();
+  //     $(thisForm).hide();
+  //     $(otherForm).show();
+  //     $(thisForm).parents('.user-options').append(response);
+
+  //   });
+  // });
+
 });
