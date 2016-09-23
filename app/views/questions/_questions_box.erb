@@ -1,10 +1,10 @@
 <div class="question_box" >
   <div class="user-options">
     <% if has_voted?(post) %>
-      <form class="change-vote-form" action="/questions/<%= post.id %>/votes/:id" method="post">
+      <form class="change-vote vote-form" action="/questions/<%= post.id %>/votes/<%= user_vote(post).id %>" method="post">
         <input type="hidden" name="_method" value="put">
     <% else %>
-      <form class="new-vote-form" action="/questions/<%= post.id %>/votes" method="post">
+      <form class="new-vote vote-form" action="/questions/<%= post.id %>/votes" method="post">
     <% end %>
       <%= erb :'questions/_vote', locals: {post: post}  %>
     </form>
